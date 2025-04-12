@@ -241,7 +241,7 @@ public class GameUI : MonoBehaviour
 
 	public void SetRaceTimeText(float time)
 	{
-		raceTimeText.text = $"{(int) (time / 60):00}:{time % 60:00.000}";
+		raceTimeText.text = $"{(int) (time / 60):00}:{time % 60:00}";
 	}
 
 	public void SetLapTimeText(float time, int index)
