@@ -172,7 +172,7 @@ public class KartLapController : KartComponent {
 
             // Increment the lap and reset the checkpoint index to -1. This tells checkpoint code that we have just
             // touched the finish line.
-            Lap++;
+           // Lap++;
             CheckpointIndex = -1;
         }
     }

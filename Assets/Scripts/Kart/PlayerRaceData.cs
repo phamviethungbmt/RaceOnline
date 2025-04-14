@@ -8,6 +8,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerRaceData : MonoBehaviour
 {
+
     public string playerName;
     public int lapCount;
     public float distance;
