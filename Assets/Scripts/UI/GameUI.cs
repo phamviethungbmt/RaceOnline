@@ -28,12 +28,24 @@ public class GameUI : MonoBehaviour
 	public Text introGameModeText;
 	public Text introTrackNameText;
 	public Button continueEndButton;
+	[SerializeField] protected GameObject chatObj;
 	private bool _startedCountdown;
 
 	public KartEntity Kart { get; private set; }
 	private KartController KartController => Kart.Controller;
 
-	public void Init(KartEntity kart)
+    protected void OnEnable()
+    {
+        //SpawnChat();
+    }
+	protected virtual void SpawnChat()
+	{
+		GameObject chat = GameObject.Find("CanvasChat");
+		if (chat != null) return;
+		Instantiate(chatObj);
+    }
+
+    public void Init(KartEntity kart)
 	{
 		Kart = kart;
 
@@ -246,7 +258,7 @@ public class GameUI : MonoBehaviour
 
 	public void SetLapTimeText(float time, int index)
 	{
-		lapTimeTexts[index].text = $"<color=#FFC600>L{index + 1}</color> {(int) (time / 60):00}:{time % 60:00.000}";
+		lapTimeTexts[index].text = $"<color=#FFC600>L{index + 1}</color> {(int) (time / 60):00}:{time % 60:00}";
 	}
 
 	public void StartSpinItem()

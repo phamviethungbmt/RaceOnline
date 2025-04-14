@@ -105,7 +105,7 @@ public class LobbyUI : MonoBehaviour, IDisabledUI
 
 		var obj = Instantiate(textPrefab, parent).GetComponent<LobbyItemUI>();
 		obj.SetPlayer(player);
-
+		//LeaderboardManager.AddPlayerToLeaderBoardRoomPlayer(player);
 		ListItems.Add(player, obj);
 		
 		UpdateDetails(GameManager.Instance);

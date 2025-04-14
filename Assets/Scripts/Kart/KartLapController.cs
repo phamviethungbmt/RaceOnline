@@ -184,7 +184,6 @@ public class KartLapController : KartComponent {
     public float GetTotalRaceTime() {
         if ( !Runner.IsRunning || StartRaceTick == 0 )
             return 0f;
-
         var endTick = EndRaceTick == 0 ? Runner.Tick.Raw : EndRaceTick;
         return TickHelper.TickToSeconds(Runner, endTick - StartRaceTick);
     }

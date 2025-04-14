@@ -17,6 +17,6 @@ public class PlayerResultItem : MonoBehaviour
             place == 3 ? "3rd" :
             $"{place}th";   
         nameText.text = name;
-        timeText.text = $"{(int)(time / 60):00}:{time % 60:00.000}";
+        timeText.text = $"{(int)(time / 60):00}:{time % 60:00}";
     }
 }

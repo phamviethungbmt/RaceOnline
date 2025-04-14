@@ -9,11 +9,11 @@ public class ChatUI2 : MonoBehaviour
     public TMP_InputField inputField;
     public Button sendButton;
     public TextMeshProUGUI chatContent;
-    private void Start()
+    private void OnEnable()
     {
         sendButton.onClick.AddListener(SendMessage);
     }
-    private void SendMessage()
+    public void SendMessage()
     {
         string message = inputField.text;
         if (!string.IsNullOrEmpty(message))
