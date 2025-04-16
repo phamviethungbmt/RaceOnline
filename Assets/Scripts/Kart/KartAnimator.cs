@@ -43,7 +43,8 @@ public class KartAnimator : KartComponent
 			if (val)
 			{
 				SetTrigger("Bump");
-				AudioManager.Play("bumpSFX", AudioManager.MixerTarget.SFX, transform.position);
+				if (HasStateAuthority)
+				Rpc_PlayMusic("bumpSFX");
 			}
 			else
 			{
@@ -55,7 +56,8 @@ public class KartAnimator : KartComponent
 		{
 			if (!val) return;
 			PlayBackfire();
-			AudioManager.Play("backfireSFX", AudioManager.MixerTarget.SFX, transform.position);
+			if (HasStateAuthority)
+			Rpc_PlayMusic("backfireSFX");
 		};
 
         Kart.Controller.OnHopChanged += val => {
@@ -208,4 +210,9 @@ public class KartAnimator : KartComponent
 		else if (Object.HasInputAuthority && Runner.IsForward)
 			_animator.SetTrigger(trigger);
 	}
+	[Rpc(RpcSources.StateAuthority,RpcTargets.All)]
+	private void Rpc_PlayMusic(string music)
+	{
+        AudioManager.Play(music, AudioManager.MixerTarget.SFX, transform.position);
+    }
 }
