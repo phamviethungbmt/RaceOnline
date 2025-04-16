@@ -1,6 +1,8 @@
 using System;
+using System.Diagnostics;
 using Fusion;
 using Fusion.Addons.Physics;
+using UnityEngine;
 
 public class KartLapController : KartComponent {
 
@@ -172,7 +174,9 @@ public class KartLapController : KartComponent {
 
             // Increment the lap and reset the checkpoint index to -1. This tells checkpoint code that we have just
             // touched the finish line.
-           Lap++;
+            Lap++;
+            UnityEngine.Debug.Log(Lap);
+            GetComponent<PlayerRaceData>().LapCount++;
             CheckpointIndex = -1;
         }
     }

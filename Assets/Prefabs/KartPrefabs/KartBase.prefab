@@ -773,6 +773,7 @@ MonoBehaviour:
   - {fileID: 8774579793099703453}
   - {fileID: 8663464316881846440}
   - {fileID: 639685912821897383}
+  - {fileID: -1982147791045771584}
   - {fileID: 879917453160815814}
   - {fileID: 772286868824015833}
   ForceRemoteRenderTimeframe: 0
@@ -841,9 +842,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448852dc16cc13d43b10e96d0dff1bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: 
-  lapCount: 0
-  distance: 0
+  _LapCount: 1
+  _Distance: 0
+  _PlayerName:
+    _length: 0
+    _data:
+      Data: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &4000878387182347114
 GameObject:
   m_ObjectHideFlags: 0

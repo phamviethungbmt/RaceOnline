@@ -1,8 +1,12 @@
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Fusion;
+using Photon.Pun;
 using UnityEngine;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 
 public class RoomPlayer : NetworkBehaviour
 {
@@ -32,6 +36,10 @@ public class RoomPlayer : NetworkBehaviour
 	
 	private ChangeDetector _changeDetector;
 
+	public string namePlayer;
+	public int lapCount = 0;
+	public float distance = 0;
+
 	public override void Spawned()
 	{
 		base.Spawned();
@@ -49,7 +57,7 @@ public class RoomPlayer : NetworkBehaviour
 		Players.Add(this);
 		PlayerJoined?.Invoke(this);
 
-		DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 	}
 	
 	public override void Render()
@@ -106,5 +114,20 @@ public class RoomPlayer : NetworkBehaviour
 			Players.Remove(roomPlayer);
 			runner.Despawn(roomPlayer.Object);
 		}
+	}
+
+	public void SetHashes()
+	{
+		try
+		{
+			namePlayer = ClientInfo.Username;
+			Hashtable hash = new Hashtable();
+			hash["name"] = namePlayer;
+			hash["lap"]= lapCount;
+			hash["dis"] = distance;
+			PhotonNetwork.LocalPlayer.SetCustomProperties(hash);	
+		}
+		catch { }
+		Debug.Log("Danh sách PlayerList hiện có " + PhotonNetwork.PlayerList.Length);
 	}
 }

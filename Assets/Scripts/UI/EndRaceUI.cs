@@ -46,7 +46,6 @@ public class EndRaceUI : MonoBehaviour, GameUI.IGameUIComponent, IDisabledUI
 			Instantiate(resultItemPrefab, parent)
 				.SetResult(kart.Controller.RoomUser.Username.Value, kart.LapController.GetTotalRaceTime(), i + 1);
 		}
-
 		EnsureContinueButton(karts);
 	}
 

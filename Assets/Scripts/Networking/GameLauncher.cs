@@ -1,12 +1,14 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Fusion;
 using Fusion.Addons.Physics;
 using Fusion.Sockets;
 using FusionExamples.FusionHelpers;
 using Managers;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public enum ConnectionStatus
 {
@@ -76,7 +78,10 @@ public class GameLauncher : MonoBehaviour, INetworkRunnerCallbacks
 			PlayerCount = ServerInfo.MaxUsers,
 			EnableClientSessionCreation = false
 		});
-	}
+
+        string namePlayer = ClientInfo.Username;
+        PlayerRaceData.Instance.RPC_SetPlayerName(namePlayer);
+    }
 
 	private void SetConnectionStatus(ConnectionStatus status)
 	{
@@ -149,7 +154,11 @@ public class GameLauncher : MonoBehaviour, INetworkRunnerCallbacks
 			roomPlayer.GameState = RoomPlayer.EGameState.Lobby;
 		}
 		SetConnectionStatus(ConnectionStatus.Connected);
-	}
+
+
+        
+
+    }
 
 	public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
 	{
