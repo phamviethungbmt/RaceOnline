@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class OpenCloseChatGame : MonoBehaviour
 {
     [SerializeField] private GameObject panelChat;
     [SerializeField] private GameObject iconChat;
-    public void OpenPanelChat()
+    public ChatUI2 chatUI;
+    public void Update()
     {
-        panelChat.SetActive(true);
-        iconChat.SetActive(false);
-    }  
-    public void ClosePanelChat()
-    {
-        panelChat.SetActive(false);
-        iconChat.SetActive(true);
+        if (Keyboard.current.leftCtrlKey.wasPressedThisFrame)
+        {
+            if (!panelChat.activeSelf)
+            {
+                panelChat.SetActive(true);
+                iconChat.SetActive(false);
+            }
+            else
+            {
+                panelChat.SetActive(false);
+                iconChat.SetActive(true);
+            }
+        }
     }
 }

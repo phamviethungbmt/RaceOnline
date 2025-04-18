@@ -457,6 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelChat: {fileID: 1493238327580430957}
   iconChat: {fileID: 4173508876035999679}
+  chatUI: {fileID: 6990266966130839644}
 --- !u!1 &4173508876035999679
 GameObject:
   m_ObjectHideFlags: 0

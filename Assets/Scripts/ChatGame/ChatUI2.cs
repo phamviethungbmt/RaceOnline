@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ChatUI2 : MonoBehaviour
@@ -20,6 +21,13 @@ public class ChatUI2 : MonoBehaviour
         {
             ChatManager2.Instance.SendChatMessage(message);
             inputField.text = "";
+        }
+    }
+    public void Update()
+    {
+        if (Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            SendMessage();
         }
     }
 }
