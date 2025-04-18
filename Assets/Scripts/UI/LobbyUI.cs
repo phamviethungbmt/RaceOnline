@@ -22,7 +22,8 @@ public class LobbyUI : MonoBehaviour, IDisabledUI
 
 	private void Awake()
 	{
-		trackNameDropdown.onValueChanged.AddListener(x =>
+        Debug.Log("I'm on: " + gameObject.name);
+        trackNameDropdown.onValueChanged.AddListener(x =>
 		{
 			var gm = GameManager.Instance;
 			if (gm != null) gm.TrackId = x;

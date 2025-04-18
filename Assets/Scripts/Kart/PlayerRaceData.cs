@@ -27,9 +27,14 @@ public class PlayerRaceData : NetworkBehaviour
         }
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+//    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     public void RPC_SetPlayerName(string name)
     {
+        if (string.IsNullOrEmpty(name))
+            Debug.Log("Null Here");
+		else
+			Debug.Log("Not Null Here");
+
         PlayerName = name;
     }
 }

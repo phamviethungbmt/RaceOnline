@@ -79,9 +79,16 @@ public class GameLauncher : MonoBehaviour, INetworkRunnerCallbacks
 			EnableClientSessionCreation = false
 		});
 
-        string namePlayer = ClientInfo.Username;
-        PlayerRaceData.Instance.RPC_SetPlayerName(namePlayer);
-    }
+		//string namePlayer = PlayerPrefs.GetString("C_Username", string.Empty);
+
+		//if (string.IsNullOrEmpty(namePlayer))
+		//	Debug.Log("Null Here");
+		//else
+		//	Debug.Log("Not Null Here");
+
+
+		//PlayerRaceData.Instance.RPC_SetPlayerName(namePlayer);
+	}
 
 	private void SetConnectionStatus(ConnectionStatus status)
 	{
