@@ -1,4 +1,4 @@
-using Fusion;
+﻿using Fusion;
 using System;
 using System.Collections.Generic;
 public class ChatManager2 : NetworkBehaviour
@@ -14,13 +14,22 @@ public class ChatManager2 : NetworkBehaviour
     public void RpcReceiveChatMessage(string playerName, string message)
     {
         string time = DateTime.Now.ToString("HH:mm:ss");
-        string formattedMessage = $"<color=black>[{time}]</color> <color=yellow>{playerName}</color>: <color=white>{message}</color>"; chatMessage.Add(formattedMessage);
+        string formattedMessage = $"<color=black>[{time}]</color> <color=yellow>{playerName}</color>: <color=white>{message}</color>";
+
         chatMessage.Add(formattedMessage);
-        ChatUI2.chatContent.text += formattedMessage + "\n"; 
+
+        if (ChatUI2 != null)
+        {
+            ChatUI2.chatContent.text += formattedMessage + "\n";
+
+            ChatUI2.NotifyNewMessage(playerName, message);
+        }
     }
+
     public void SendChatMessage(string message)
     {
         string playerName = ClientInfo.Username.ToString();
         RpcReceiveChatMessage(playerName, message);
     }
+   
 }
