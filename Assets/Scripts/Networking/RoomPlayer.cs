@@ -115,19 +115,4 @@ public class RoomPlayer : NetworkBehaviour
 			runner.Despawn(roomPlayer.Object);
 		}
 	}
-
-	public void SetHashes()
-	{
-		try
-		{
-			namePlayer = ClientInfo.Username;
-			Hashtable hash = new Hashtable();
-			hash["name"] = namePlayer;
-			hash["lap"]= lapCount;
-			hash["dis"] = distance;
-			PhotonNetwork.LocalPlayer.SetCustomProperties(hash);	
-		}
-		catch { }
-		Debug.Log("Danh sách PlayerList hiện có " + PhotonNetwork.PlayerList.Length);
-	}
 }

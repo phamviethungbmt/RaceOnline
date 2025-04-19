@@ -45,8 +45,16 @@ public class LeaderboardManager : MonoBehaviour
         {
             var p = sortedPlayers[i];
             slots[i].SetActive(true);
-            nameTexts[i].text = string.IsNullOrEmpty(p.PlayerName.ToString()) ? "unnamed" : p.PlayerName.ToString();
-            lapTexts[i].text = p.LapCount.ToString() + "/" + "3";
+            nameTexts[i].text = string.IsNullOrEmpty(p.PlayerName.ToString()) ? ClientInfo.Username : p.PlayerName.ToString();
+            lapTexts[i].text = $"<color=yellow>{p.LapCount.ToString()}</color>" + @"<color=black>/</color>" + "<color=#26FF00>3</color>";
+            if (p.Object.HasInputAuthority)
+            {
+                nameTexts[i].color = Color.yellow;
+            }
+            else
+            {
+                nameTexts[i].color = Color.white;
+            }
         }
     }
     private void Update()
