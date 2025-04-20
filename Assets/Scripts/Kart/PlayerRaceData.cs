@@ -26,8 +26,9 @@ public class PlayerRaceData : NetworkBehaviour
             RPC_SetPlayerName(ClientInfo.Username); // Gửi tên lên từ client
         }
     }
+    public string GetPlayerRaceName() => ClientInfo.Username;
 
-//    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    //[Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     public void RPC_SetPlayerName(string name)
     {
         if (string.IsNullOrEmpty(name))

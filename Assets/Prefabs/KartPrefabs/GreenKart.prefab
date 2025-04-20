@@ -18,16 +18,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 59827823487360272, guid: 0d8dad4dba1c658459d8a1ca4d928705, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 59827823487360272, guid: 0d8dad4dba1c658459d8a1ca4d928705, type: 3}
       propertyPath: NetworkedBehaviours.Array.data[10]
       value: 
-      objectReference: {fileID: 8418403150634682070}
+      objectReference: {fileID: 7368986692344925846}
     - target: {fileID: 59827823487360272, guid: 0d8dad4dba1c658459d8a1ca4d928705, type: 3}
       propertyPath: NetworkedBehaviours.Array.data[11]
       value: 
-      objectReference: {fileID: 7368986692344925846}
+      objectReference: {fileID: 6972215199577772425}
     - target: {fileID: 59827823487360272, guid: 0d8dad4dba1c658459d8a1ca4d928705, type: 3}
       propertyPath: NetworkedBehaviours.Array.data[12]
       value: 
@@ -147,29 +147,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2730947640262441645, guid: 0d8dad4dba1c658459d8a1ca4d928705, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8418403150634682070}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d8dad4dba1c658459d8a1ca4d928705, type: 3}
---- !u!1 &5734129543939451133 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2730947640262441645, guid: 0d8dad4dba1c658459d8a1ca4d928705, type: 3}
-  m_PrefabInstance: {fileID: 7671316920882025040}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8418403150634682070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5734129543939451133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79131ca23445ff64395e3268510b246f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _TotalDistance: 0
 --- !u!114 &6972215199577772425 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 772286868824015833, guid: 0d8dad4dba1c658459d8a1ca4d928705, type: 3}
