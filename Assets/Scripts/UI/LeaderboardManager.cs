@@ -60,8 +60,6 @@ public class LeaderboardManager : MonoBehaviour
     }
     private static List<KartEntity> GetStartKarts() =>
         KartEntity.Karts
-            .OrderBy(x => x.LapController.GetTotalRaceTime())
-            .Where(kart => kart.LapController.HasFinished)
             .ToList();
     private void Update()
     {
