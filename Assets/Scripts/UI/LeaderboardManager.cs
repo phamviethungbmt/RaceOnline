@@ -40,12 +40,13 @@ public class LeaderboardManager : MonoBehaviour
         // Ẩn tất cả trước
         foreach (var slot in slots)
             slot.SetActive(false);
-
+        var listPlayerRaceInGame = GetStartKarts();
         for (int i = 0; i < sortedPlayers.Count && i < slots.Length; i++)
         {
+            var slot = listPlayerRaceInGame[i];
             var p = sortedPlayers[i];
             slots[i].SetActive(true);
-            nameTexts[i].text = string.IsNullOrEmpty(p.PlayerName.ToString()) ? p.GetComponent<PlayerRaceData>().GetPlayerRaceName() : p.PlayerName.Value;
+            nameTexts[i].text = string.IsNullOrEmpty(p.PlayerName.ToString()) ? slot.Controller.RoomUser.Username.Value : p.PlayerName.Value;
             lapTexts[i].text = $"<color=yellow>{p.LapCount.ToString()}</color>" + @"<color=black>/</color>" + "<color=#26FF00>3</color>";
             if (p.Object.HasInputAuthority)
             {
@@ -57,6 +58,11 @@ public class LeaderboardManager : MonoBehaviour
             }
         }
     }
+    private static List<KartEntity> GetStartKarts() =>
+        KartEntity.Karts
+            .OrderBy(x => x.LapController.GetTotalRaceTime())
+            .Where(kart => kart.LapController.HasFinished)
+            .ToList();
     private void Update()
     {
         UpdateLeaderboard();
