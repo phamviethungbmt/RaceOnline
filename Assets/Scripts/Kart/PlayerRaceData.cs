@@ -28,14 +28,16 @@ public class PlayerRaceData : NetworkBehaviour
     }
     public string GetPlayerRaceName() => ClientInfo.Username;
 
-    //[Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_SetPlayerName(string name)
     {
-        if (string.IsNullOrEmpty(name))
-            Debug.Log("Null Here");
-		else
-			Debug.Log("Not Null Here");
-
+        if (HasInputAuthority)
+        {
+            if (string.IsNullOrEmpty(name))
+                Debug.Log("Null Here");
+            else
+                Debug.Log("Not Null Here");
+        }
         PlayerName = name;
     }
 }
